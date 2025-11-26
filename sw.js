@@ -1,31 +1,35 @@
 const CACHE_NAME = 'my-portfolio-v1';
 
+// --- AUTO BASE PATH DETECTION (TERPENTING) ---
+const BASE = self.location.pathname.replace(/\/sw\.js$/, '');
+
+// --- LIST ASSETS ---
 const ASSETS = [
-    '/',                     // root
-    '/index.html',
-    '/favicon.ico',
-    '/style.css',
-    '/script.js',
+    `${BASE}/`,
+    `${BASE}/index.html`,
+    `${BASE}/favicon.ico`,
+    `${BASE}/style.css`,
+    `${BASE}/script.js`,
 
     // Components
-    '/components/navbar.js',
+    `${BASE}/components/navbar.js`,
 
     // Images
-    '/assets/img/11563.jpg',
-    '/assets/img/87421.svg',
-    '/assets/img/0345743.png',
+    `${BASE}/assets/img/11563.jpg`,
+    `${BASE}/assets/img/87421.svg`,
+    `${BASE}/assets/img/0345743.png`,
 
     // CSS
-    '/assets/css/tailwind.min.css',
-    '/assets/css/aos.css',
+    `${BASE}/assets/css/tailwind.min.css`,
+    `${BASE}/assets/css/aos.css`,
 
     // JS
-    '/assets/js/feather.min.js',
-    '/assets/js/aos.js',
-    '/assets/js/particles.min.js'
+    `${BASE}/assets/js/feather.min.js`,
+    `${BASE}/assets/js/aos.js`,
+    `${BASE}/assets/js/particles.min.js`
 ];
 
-// Install Service Worker
+// --- INSTALL ---
 self.addEventListener('install', (event) => {
     console.log('[SW] Installing...');
     event.waitUntil(
@@ -34,9 +38,10 @@ self.addEventListener('install', (event) => {
             return cache.addAll(ASSETS);
         })
     );
+    self.skipWaiting();
 });
 
-// Activate Service Worker
+// --- ACTIVATE ---
 self.addEventListener('activate', (event) => {
     console.log('[SW] Activated');
     event.waitUntil(
@@ -51,29 +56,25 @@ self.addEventListener('activate', (event) => {
             );
         })
     );
+    self.clients.claim();
 });
 
-// Fetch Handler
+// --- FETCH HANDLER ---
 self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            // If in cache, return it
-            if (cachedResponse) {
-                return cachedResponse;
-            }
-
-            // Else fetch normally
-            return fetch(event.request)
-                .then((response) => {
-                    // Save new file to cache
-                    return caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, response.clone());
-                        return response;
+        caches.match(event.request)
+            .then((cached) => {
+                if (cached) return cached;
+                return fetch(event.request)
+                    .then((response) => {
+                        return caches.open(CACHE_NAME).then((cache) => {
+                            cache.put(event.request, response.clone());
+                            return response;
+                        });
+                    })
+                    .catch(() => {
+                        // fallback optional
                     });
-                })
-                .catch(() => {
-                    // fallback kalau perlu
-                });
-        })
+            })
     );
 });
