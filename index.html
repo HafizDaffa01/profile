@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hafiz Daffa - Digital Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/profile/favicon.ico">
 
     <!-- Tailwind CSS -->
     <script src="assets/css/tailwind.min.css"></script>
@@ -691,18 +691,20 @@
 
     </script>
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('profile/sw.js')
-                .then(() => console.log('Service Worker registered'))
-                .catch(err => console.log('SW registration failed:', err));
-        }
-    </script>
+   <script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/profile/sw.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.log('SW registration failed:', err));
+}
+</script>
+
 
 
 </body>
 
 
 </html>
+
 
 
