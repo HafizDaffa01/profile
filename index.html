@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafiz Daffa - Digital Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Tailwind CSS -->
+    <script src="/assets/css/tailwind.min.css"></script>
+
+    <!-- AOS Animation Library -->
+    <link href="assets/css/aos.css" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="assets/js/feather.min.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .glow {
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .skill-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: #e5e7eb;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans antialiased text-gray-800">
+    <!-- Navbar Component -->
+    <script src="components/navbar.js"></script>
+    <custom-navbar></custom-navbar>
+
+    <div class="container mx-auto px-4 md:px-6 lg:px-8">
+        <!-- Hero Section with Particle Background -->
+        <section class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden" data-aos="fade">
+            <canvas id="particles" class="absolute top-0 left-0 w-full h-full pointer-events-none"></canvas>
+            <div class="text-center max-w-4xl">
+                <div class="relative inline-block mb-8">
+                    <div
+                        class="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-white glow overflow-hidden mx-auto floating relative">
+                        <img src="assets/img/11563.jpg" alt="Profile"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 rounded-full border-4 border-transparent hover:border-indigo-500 transition-all duration-500 hover:opacity-0">
+                        </div>
+                        <div
+                            class="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500/10 to-emerald-500/10 hover:opacity-0 transition-opacity duration-500">
+                        </div>
+                    </div>
+                    <div
+                        class="absolute -bottom-2 -right-2 bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                        <span>14 y.o</span>
+                    </div>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 relative inline-block">
+                    <span class="gradient-text hover:animate-pulse">Hafiz Daffa</span> Wahyutama
+                    <span
+                        class="absolute -bottom-2 -right-4 text-xs bg-indigo-500 text-white px-2 py-1 rounded-full animate-bounce">:D</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto relative">
+                    <span class="absolute -left-8 top-1/2 transform -translate-y-1/2 text-indigo-400">❝</span>
+                    Building <span
+                        class="font-bold text-indigo-500 hover:underline hover:decoration-emerald-500">digital
+                        solutions</span> with code & creativity
+                    <span class="absolute -right-8 top-1/2 transform -translate-y-1/2 text-emerald-400">❞</span>
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 relative z-10">
+                    <a href="#projects"
+                        class="px-8 py-3 bg-indigo-500 hover:bg-indigo-600 text-white transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30 flex items-center group">
+                        <span>Explore Projects</span>
+                        <i data-feather="arrow-right"
+                            class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact"
+                        class="px-8 py-3 bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 rounded-full font-medium transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-gray-400/20 flex items-center group">
+                        <span>Contact Me</span>
+                        <i data-feather="mail"
+                            class="ml-2 w-5 h-5 transform group-hover:rotate-12 transition-transform"></i>
+                    </a>
+                    <a href="#timeline"
+                        class="px-8 py-3 bg-gradient-to-r from-indigo-500 to-emerald-500 text-white rounded-full font-medium transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/30 flex items-center group">
+                        <span>My Journey</span>
+                        <i data-feather="compass"
+                            class="ml-2 w-5 h-5 transform group-hover:rotate-180 transition-transform duration-700"></i>
+                    </a>
+                </div>
+                <div class="mt-12 animate-bounce">
+                    <a href="#about" class="text-gray-400 hover:text-indigo-500 transition-colors">
+                        <i data-feather="chevron-down" class="w-8 h-8"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20" data-aos="fade-up">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                    About <span class="gradient-text">Me</span>
+                </h2>
+
+                <div class="bg-white p-8 md:p-10 rounded-xl shadow-lg">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <p class="text-lg text-gray-700 mb-6">
+                                Sup! I'm a <span class="font-bold text-indigo-500">14-year-old developer</span> with a
+                                passion for creating digital solutions. I specialize in backend development, game
+                                design, and IoT systems.
+                            </p>
+                            <p class="text-lg text-gray-700 mb-6">
+                                My journey began with Python at age 9, and since then I've developed numerous projects
+                                including the <span class="font-bold text-emerald-500">AFESRC Project</span> and
+                                <span class="font-bold text-indigo-500">WebsiteBuilder</span>.
+                            </p>
+                            <p class="text-lg text-gray-700">
+                                I believe in <span class="font-bold">clean, efficient code</span> that makes a <span
+                                    class="font-bold">real impact</span>. My goal is to join Google and contribute to
+                                meaningful technological advancements.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                        
+                            <!-- Years Coding -->
+                            <div class="bg-indigo-50 p-6 rounded-lg text-center">
+                                <div class="flex items-center justify-center gap-1 mb-2">
+                                    <div id="coding" class="text-4xl font-bold text-indigo-600">0</div>
+                                    <span class="text-4xl font-bold text-indigo-600">+</span>
+                                </div>
+                                <div class="text-gray-600">Years Coding</div>
+                            </div>
+                        
+                            <!-- Projects -->
+                            <div class="bg-emerald-50 p-6 rounded-lg text-center">
+                                <div class="flex items-center justify-center gap-1 mb-2">
+                                    <div id="projects" class="text-4xl font-bold text-emerald-600">0</div>
+                                    <span class="text-4xl font-bold text-emerald-600">+</span>
+                                </div>
+                                <div class="text-gray-600">Projects</div>
+                            </div>
+                        
+                            <!-- Cups of Coffee -->
+                            <div class="bg-indigo-50 p-6 rounded-lg text-center">
+                                <div class="flex items-center justify-center gap-1 mb-2">
+                                    <div id="coffee" class="text-4xl font-bold text-indigo-600">0</div>
+                                    <span class="text-4xl font-bold text-indigo-600">+</span>
+                                </div>
+                                <div class="text-gray-600">Cups of Coffee</div>
+                            </div>
+                        
+                            <!-- Infinite Passion -->
+                            <div class="bg-emerald-50 p-6 rounded-lg text-center">
+                                <div class="flex items-center justify-center gap-1 mb-2">
+                                    <span id="infiniteCounter" class="text-4xl font-bold text-emerald-600">0</span>
+                                    <span class="text-4xl font-bold text-emerald-600 inline-block">+</span>
+                                    <span class="text-1xl text-emerald-600 inline-block">ideas</span>
+                                </div>
+                                <div class="text-gray-600">Creativity Counter</div>
+                            </div>
+                        
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-gray-100" data-aos="fade-up">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                    My <span class="gradient-text">Skills</span>
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Languages -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+                                <i data-feather="code" class="text-indigo-500"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Programming Languages</h3>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Python</span>
+                                    <span class="text-gray-500">95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>JavaScript</span>
+                                    <span class="text-gray-500">87%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 87%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>PHP</span>
+                                    <span class="text-gray-500">89%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 89%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technologies -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center mr-4">
+                                <i data-feather="tool" class="text-emerald-500"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Technologies & Tools</h3>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Flask</span>
+                                    <span class="text-gray-500">79%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 79%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>ESP32/Arduino</span>
+                                    <span class="text-gray-500">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Laravel</span>
+                                    <span class="text-gray-500">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20" data-aos="fade-up">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                    Featured <span class="gradient-text">Projects</span>
+                </h2>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover-glow">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/img/0345743.png" alt="WebsiteBuilder"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">WebsiteBuilder</h3>
+                                <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full">Python</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">A simple application for creating local websites
+                                programmatically.</p>
+                            <a href="https://github.com/DeltaStudios01/WebsiteBuilder"
+                                class="text-indigo-500 hover:text-indigo-600 font-medium flex items-center">
+                                View on GitHub
+                                <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover-glow">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/img/87421.svg" alt="AFESRC Project"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">AFESRC Project</h3>
+                                <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full">IoT</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Car project with camera streaming using ESP32 + IoT +
+                                WebSocket.</p>
+                            <a href="https://github.com/HafizDaffa01/AFESRC"
+                                class="text-indigo-500 hover:text-indigo-600 font-medium flex items-center">
+                                View on GitHub
+                                <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Experience Timeline Section -->
+        <section id="timeline" class="py-20 bg-gray-100" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                    Project <span class="gradient-text">Timeline</span>
+                </h2>
+
+                <div class="space-y-8 relative">
+                    <!-- Vertical line -->
+                    <div
+                        class="absolute left-4 md:left-1/2 h-full w-0.5 bg-gradient-to-b from-indigo-400 to-emerald-400 transform -translate-x-1/2">
+                    </div>
+
+                    <!-- Timeline items -->
+                    <div class="relative pl-10 md:pl-0">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8 md:text-right">
+                                <h3 class="text-lg font-bold "><a
+                                        href="https://github.com/DeltaStudios01/Trash-Defender"
+                                        class="hover:underline">Trash Defender</a></h3>
+                                <p class="text-gray-600 text-sm mb-2">Dec 3, 2024</p>
+                            </div>
+                            <div
+                                class="hidden md:block w-8 h-8 rounded-full bg-indigo-500 border-4 border-white absolute left-1/2 transform -translate-x-1/2 z-10">
+                            </div>
+                            <div class="md:w-1/2 md:pl-8 mt-4 md:mt-0">
+                                <p class="text-gray-700">A game where you protect Earth from waste and pollution.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-10 md:pl-0">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8 md:text-right">
+                                <h3 class="text-lg font-bold text-primary"><a
+                                        href="https://github.com/DeltaStudios01/DeltaEditor_n_StellarScript"
+                                        class="hover:underline">Delta Editor & StellarScript</a></h3>
+                                <p class="text-gray-600 text-sm mb-2">Dec 31, 2024</p>
+                            </div>
+                            <div
+                                class="hidden md:block w-8 h-8 rounded-full bg-indigo-500 border-4 border-white absolute left-1/2 transform -translate-x-1/2 z-10">
+                            </div>
+                            <div class="md:w-1/2 md:pl-8 mt-4 md:mt-0">
+                                <p class="text-gray-700">A custom code editor and scripting language designed for easy
+                                    writing, converting, and running programs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-10 md:pl-0">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8 md:text-right">
+                                <h3 class="text-lg font-bold text-primary"><a
+                                        href="https://github.com/DeltaStudios01/BetterCMD"
+                                        class="hover:underline">BetterCMD</a></h3>
+                                <p class="text-gray-600 text-sm mb-2">Feb 25, 2025</p>
+                            </div>
+                            <div
+                                class="hidden md:block w-8 h-8 rounded-full bg-indigo-500 border-4 border-white absolute left-1/2 transform -translate-x-1/2 z-10">
+                            </div>
+                            <div class="md:w-1/2 md:pl-8 mt-4 md:mt-0">
+                                <p class="text-gray-700">Enhanced alternative to the default Windows Command Prompt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-10 md:pl-0">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8 md:text-right">
+                                <h3 class="text-lg font-bold text-primary"><a
+                                        href="https://github.com/HafizDaffa01/DGiNTM" class="hover:underline">Da Guy is
+                                        In The Mansion (DGiNTM)</a></h3>
+                                <p class="text-gray-600 text-sm mb-2">May 19, 2025</p>
+                            </div>
+                            <div
+                                class="hidden md:block w-8 h-8 rounded-full bg-indigo-500 border-4 border-white absolute left-1/2 transform -translate-x-1/2 z-10">
+                            </div>
+                            <div class="md:w-1/2 md:pl-8 mt-4 md:mt-0">
+                                <p class="text-gray-700">A short, maze n' semi-rpg game where you're trapped inside a
+                                    mysterious mansion trying to save your friend.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-10 md:pl-0">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8 md:text-right">
+                                <h3 class="text-lg font-bold text-primary text-indigo-600"><a
+                                        href="https://github.com/DeltaStudios01/WebsiteBuilder"
+                                        class="hover:underline">WebsiteBuilder</a></h3>
+                                <p class="text-gray-600 text-sm mb-2">Jul 31, 2025</p>
+                            </div>
+                            <div
+                                class="hidden md:block w-8 h-8 rounded-full bg-indigo-500 border-4 border-white absolute left-1/2 transform -translate-x-1/2 z-10">
+                            </div>
+                            <div class="md:w-1/2 md:pl-8 mt-4 md:mt-0">
+                                <p class="text-gray-700">Powerful yet simple Python-based application that lets you
+                                    create, edit, and manage your websites dynamically.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-10 md:pl-0">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8 md:text-right">
+                                <h3 class="text-lg font-bold text-primary text-indigo-600"><a
+                                        href="https://github.com/HafizDaffa01/AFESRC" class="hover:underline">AFESRC
+                                        Project</a></h3>
+                                <p class="text-gray-600 text-sm mb-2">Aug 27, 2025</p>
+                            </div>
+                            <div
+                                class="hidden md:block w-8 h-8 rounded-full bg-indigo-500 border-4 border-white absolute left-1/2 transform -translate-x-1/2 z-10">
+                            </div>
+                            <div class="md:w-1/2 md:pl-8 mt-4 md:mt-0">
+                                <p class="text-gray-700">Developed embedded IoT system with ESP32, including camera
+                                    streaming.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                    Get In <span class="gradient-text">Touch</span>
+                </h2>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 bg-indigo-500 text-white p-8">
+                            <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-indigo-400 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i data-feather="mail" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium mb-1">Email</h4>
+                                        <a href="mailto:hafizdaffaw+dev@gmail.com"
+                                            class="text-indigo-100 hover:text-white">hafizdaffaw+dev@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-indigo-400 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i data-feather="github" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium mb-1">GitHub</h4>
+                                        <a href="https://github.com/HafizDaffa01" target="_blank"
+                                            class="text-indigo-100 hover:text-white">@HafizDaffa01</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-indigo-400 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i data-feather="github" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium mb-1">GitHub</h4>
+                                        <a href="https://github.com/DeltaStudios01" target="_blank"
+                                            class="text-indigo-100 hover:text-white">@DeltaStudios01</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:w-1/2 p-8">
+                            <form class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>
+                                    <input type="text" id="name"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+                                    <input type="email" id="email"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                </div>
+
+                                <div>
+                                    <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
+                                    <textarea id="message" rows="4"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                                </div>
+
+                                <button type="submit"
+                                    class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 flex items-center justify-center">
+                                    Send Message
+                                    <i data-feather="send" class="ml-2 w-4 h-4"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">
+                        <span class="gradient-text">Hafiz Daffa</span>
+                    </h2>
+                    <p class="text-gray-400 mt-2">Building the future with code</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="https://github.com/HafizDaffa01" target="_blank"
+                        class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:text-white hover:bg-indigo-600 transition-all">
+                        <i data-feather="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:hafizdaffaw+dev@gmail.com"
+                        class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:text-white hover:bg-indigo-600 transition-all">
+                        <i data-feather="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Hafiz Daffa Wahyutama. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="assets/js/particles.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script>
+        // Particle.js initialization
+        document.addEventListener('DOMContentLoaded', function () {
+            particlesJS('particles', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: ["#6366f1", "#10b981"] },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: true, distance: 150, color: "#a5b4fc", opacity: 0.4, width: 1 },
+                    move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: true, mode: "push" }
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+    <script>
+        // Counter on Scroll (Start When Visible)
+            document.addEventListener('DOMContentLoaded', () => {
+
+                const infiniteCounter = document.getElementById("infiniteCounter");
+                const coffee = document.getElementById("coffee");
+                const projects = document.getElementById("projects");
+                const coding = document.getElementById("coding");
+
+                let countersStarted = false; // biar ga jalan 2x
+
+                function startCounters() {
+                    if (countersStarted) return;
+                    countersStarted = true;
+
+                    // Infinite counter
+                    let infiniteVal = 0;
+                    setInterval(() => {
+                        infiniteVal++;
+                        infiniteCounter.textContent = infiniteVal.toLocaleString();
+                    }, 10);
+
+                    // Limited counter function
+                    function animate(el, max, speed) {
+                        let val = 0;
+                        const interval = setInterval(() => {
+                            if (val < max) {
+                                val++;
+                                el.textContent = val;
+                            } else {
+                                clearInterval(interval);
+                            }
+                        }, speed);
+                    }
+
+                    animate(coffee, 75, 200);
+                    animate(projects, 10, 250);
+                    animate(coding, 5, 300);
+                }
+
+                // Observer to trigger counters
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            startCounters();
+                            counterObserver.disconnect(); // stop observing
+                        }
+                    });
+                }, {
+                    threshold: 0.75 // terlihat 75% baru nyala
+                });
+
+                // Observe satu wrapper (container grid counters)
+                const counterSection = document.querySelector(".grid"); // sesuaikan kalau beda
+                if (counterSection) counterObserver.observe(counterSection);
+
+            });
+
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log('Service Worker registered'))
+                .catch(err => console.log('SW registration failed:', err));
+        }
+    </script>
+
+
+</body>
+
+</html>
