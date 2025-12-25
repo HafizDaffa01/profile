@@ -15,7 +15,6 @@ const ASSETS = [
     `${BASE}/components/navbar.js`,
 
     // Images
-    `${BASE}/assets/img/11563.jpg`,
     `${BASE}/assets/img/87421.svg`,
     `${BASE}/assets/img/0345743.png`,
 
@@ -78,3 +77,4 @@ self.addEventListener('fetch', (event) => {
             })
     );
 });
+
